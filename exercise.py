@@ -69,25 +69,64 @@ check_letter()
 # - Use a conditional statement to check if the age meets the minimum voting age requirement.
 
 def check_voting_eligibility():
-    legal_age_to_vote = 18 
-    age =input ("Please enter your age:")
-
-    if age >= 0:
-        print("You are eligible to vote.")
-   else:
-        print("You are not old enough to vote.")
-    else:
+    legal_age_to_vote = 18
     
-    print("Invalid age. Please enter a valid age.")
+    try:
+        age = int(input("Please enter your age: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid age.")
+     
+    
+    if age < 0:
+        print("Invalid age. Please enter a valid age.")
+    else:
+        if age >= legal_age_to_vote:
+            print("You are eligible to vote.")
+        else:
+            print("You are not old enough to vote.")
+
 
 # Call the function
 check_voting_eligibility()
 
+# Exercise 4: Weather Advice
+#
+# Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
+#
+# Requirements:
+# - The script should prompt the user to enter if it is cold (yes/no).
+# - Then, ask if it is raining (yes/no).
+# - Use logical operators to determine clothing advice:
+#   - If it is cold AND raining, print "Wear a waterproof coat."
+#   - If it is cold BUT NOT raining, print "Wear a warm coat."
+#   - If it is NOT cold but raining, print "Carry an umbrella."
+#   - If it is NOT cold AND NOT raining, print "Wear light clothing."
+#
+# Hints:
+# - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
+def weather_advice():
+    def weather_advice():
+   
+        cold_input = input("Is it cold? (yes/no): ").strip().lower()
+        raining_input = input("Is it raining? (yes/no): ").strip().lower()
+    
+    
+    cold = cold_input == "yes"
+    raining = raining_input == "yes"
+    
+ 
+    if cold and raining:
+        print("Wear a waterproof coat.")
+    elif cold and not raining:
+        print("Wear a warm coat.")
+    elif not cold and raining:
+        print("Carry an umbrella.")
+    elif not cold and not raining:
+        print("Wear light clothing.")
 
-
-
-
+# Call the function
+weather_advice()
 
 
 
@@ -118,9 +157,9 @@ def determine_season():
     day = int(input("Enter the day of the month:"))
 
     month_to_num = {
-        'Jan': 1, 'Feb': 2, 'Mar':3
-        'Apr': 4, 'May': 5, 'Jun':6
-        'Jul': 7, 'Aug': 8, 'Sept':9
+        'Jan': 1, 'Feb': 2, 'Mar': 3,
+        'Apr': 4, 'May': 5, 'Jun':6,
+        'Jul': 7, 'Aug': 8, 'Sept':9,
         'Oct': 10, 'Nov': 11, 'Dec':12
     }
 
